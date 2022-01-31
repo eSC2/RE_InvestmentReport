@@ -1,11 +1,12 @@
 {
   "name": "RE_InvestmentReport",
   "description": "Investment Report with REFramework and Queue",
-  "main": "Main.xaml",
+  "main": "Process.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.12.3]",
     "UiPath.System.Activities": "[21.10.3]",
+    "UiPath.Testing.Activities": "[1.4.6]",
     "UiPath.UIAutomation.Activities": "[21.10.4]"
   },
   "webServices": [],
@@ -45,8 +46,8 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "e44f3894-3730-475a-ac30-81c346360cab",
+      "filePath": "Process.xaml",
+      "uniqueId": "703f948e-6e5a-44b2-ad15-63e96a57b0ff",
       "input": [],
       "output": []
     }
