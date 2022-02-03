@@ -1,7 +1,7 @@
 {
   "name": "RE_InvestmentReport",
   "description": "Investment Report with REFramework and Queue",
-  "main": "Process.xaml",
+  "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.12.3]",
@@ -48,6 +48,12 @@
     {
       "filePath": "Process.xaml",
       "uniqueId": "703f948e-6e5a-44b2-ad15-63e96a57b0ff",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "6a899821-29d3-41d1-84d0-201af0e04b90",
       "input": [],
       "output": []
     }
