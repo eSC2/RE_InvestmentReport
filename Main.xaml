@@ -88,7 +88,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used (if any) in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="303,103" sap2010:WorkflowViewState.IdRef="State_1">
+    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used (if any) in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="688,3558" sap2010:WorkflowViewState.IdRef="State_1">
       <State.Entry>
         <TryCatch sap2010:Annotation.AnnotationText="" DisplayName="Try initializing settings and applications (if any)" sap:VirtualizedContainerService.HintSize="642,3140" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <sap:WorkflowViewStateService.ViewState>
@@ -133,9 +133,15 @@
                     <ui:LogMessage DisplayName="Log Message screen resolution" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;The primary screen resolution is: &quot; + Screen.PrimaryScreen.Bounds.Width.ToString + &quot; x &quot; + Screen.PrimaryScreen.Bounds.Height.ToString]" />
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="484,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config" />
-                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets" />
-                        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile" />
+                        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">
+                          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                        </OutArgument>
+                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">
+                          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Settings&quot;, &quot;Constants&quot;}" />
+                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">
+                          <Literal x:TypeArguments="x:String">Data\Config.xlsx</Literal>
+                        </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <If sap2010:Annotation.AnnotationText="Overwrite queue name from in configuration file (Config dictionary that now contains Config.xlsx data) in case the argument in_OrchestratorQueueName is specified.&#xA;&#xA;AKA if in_OrchestratorQueueName is specified. We'll use this specified one instead of the one loaded from Config.xlsx&#xA;&#xA;This provides backward compatibility with &lt; 2018.3" Condition="[Not String.IsNullOrWhiteSpace(in_OrchestratorQueueName)]" DisplayName="If in_OrchestratorQueueName is specified" sap:VirtualizedContainerService.HintSize="484,379" sap2010:WorkflowViewState.IdRef="If_2">
@@ -453,36 +459,16 @@
                                 <TryCatch.Try>
                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">
-                                        <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="Nothing" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField1" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField2" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionID" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">
-                                        <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="SystemException" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                                        <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                                      </InArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
-                                      </InOutArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                                      </InOutArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="ConsecutiveSystemExceptions" />
-                                      </InOutArgument>
+                                      <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[Nothing]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">[TransactionField2]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">[TransactionID]</InArgument>
+                                      <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[SystemException]</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                      <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryNumber]</InOutArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[TransactionNumber]</InOutArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">[ConsecutiveSystemExceptions]</InOutArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </TryCatch.Try>
@@ -536,36 +522,16 @@
                                     <TryCatch.Try>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus (BRE)" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">
-                                            <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="BusinessException" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField1" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField2" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionID" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">
-                                            <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="Nothing" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                                            <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                                          </InArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
-                                          </InOutArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                                          </InOutArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="ConsecutiveSystemExceptions" />
-                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[BusinessException]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">[TransactionField2]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">[TransactionID]</InArgument>
+                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[Nothing]</InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryNumber]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[TransactionNumber]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">[ConsecutiveSystemExceptions]</InOutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </TryCatch.Try>
@@ -619,36 +585,16 @@
                                     <TryCatch.Try>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus (SE)" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">
-                                            <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="Nothing" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField1" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField2" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionID" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">
-                                            <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="SystemException" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                                            <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                                          </InArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
-                                          </InOutArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                                          </InOutArgument>
-                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="ConsecutiveSystemExceptions" />
-                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[Nothing]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">[TransactionField2]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">[TransactionID]</InArgument>
+                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[SystemException]</InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryNumber]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[TransactionNumber]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ConsecutiveSystemExceptions">[ConsecutiveSystemExceptions]</InOutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </TryCatch.Try>
@@ -727,11 +673,7 @@
                         </Transition>
                       </State.Transitions>
                       <State.Variables>
-                        <Variable x:TypeArguments="x:Int32" Name="RetryNumber">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:Int32" />
-                          </Variable.Default>
-                        </Variable>
+                        <Variable x:TypeArguments="x:Int32" Default="0" Name="RetryNumber" />
                       </State.Variables>
                     </State>
                   </Transition.To>
