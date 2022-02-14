@@ -1,0 +1,11 @@
+﻿{
+  "Id": "TmGBDvYjDkaFjfkwtF2-OA",
+  "Reference": "-XjEjCHNFEmtH0SZn15gUA/TmGBDvYjDkaFjfkwtF2-OA",
+  "Name": "Firefox: New Tab app",
+  "Type": "App",
+  "Created": "2022-02-14T11:07:00.8351335Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-14T11:07:00.8351335Z"
+}

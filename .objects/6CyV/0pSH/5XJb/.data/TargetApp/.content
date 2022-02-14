@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-16"?>
+<TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="OmlsxbVMpEychTt2-DJ8Rg" Selector="&lt;html app='msedge.exe' title='*' /&gt;" Url="edge://newtab/" xmlns="http://schemas.uipath.com/workflow/activities/uix">
+  <imageRef attrName="IconBase64" xmlns="">0K7yo9VBRaEqebcAtrdi-5Q</imageRef>
+  <imageRef attrName="InformativeScreenshot" originalValue="84ee0073bd833c6cb61124742b0a5a9e.png" xmlns="">0lUXGr3KIg06u6U00rSDhSQ</imageRef>
+</TargetApp>

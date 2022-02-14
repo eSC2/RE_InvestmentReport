@@ -1,0 +1,11 @@
+﻿{
+  "Id": "6CyVwaCiNUujhzCWvwbiWg",
+  "Reference": "-XjEjCHNFEmtH0SZn15gUA/6CyVwaCiNUujhzCWvwbiWg",
+  "Name": "Edge: New tab app",
+  "Type": "App",
+  "Created": "2022-02-14T11:07:39.090545Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-14T11:07:39.090545Z"
+}

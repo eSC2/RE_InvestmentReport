@@ -1,0 +1,12 @@
+﻿{
+  "Id": "5XJbNZxqc0a59_R7ZlCrkQ",
+  "Reference": "-XjEjCHNFEmtH0SZn15gUA/5XJbNZxqc0a59_R7ZlCrkQ",
+  "ParentRef": "-XjEjCHNFEmtH0SZn15gUA/0pSHAx51L0WwGveA8RB6ew",
+  "Name": "Edge: New tab",
+  "Type": "Screen",
+  "Created": "2022-02-14T11:07:39.1318357Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-14T11:07:39.1318357Z"
+}

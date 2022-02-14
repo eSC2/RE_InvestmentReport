@@ -1,0 +1,12 @@
+﻿{
+  "Id": "Yf4CdWcgbkusYwJxfW_01Q",
+  "Reference": "-XjEjCHNFEmtH0SZn15gUA/Yf4CdWcgbkusYwJxfW_01Q",
+  "ParentRef": "-XjEjCHNFEmtH0SZn15gUA/CvwloaAdjUmeN-sDlzjalg",
+  "Name": "Firefox: New Tab",
+  "Type": "Screen",
+  "Created": "2022-02-14T11:07:00.8952602Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=21.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-02-14T11:07:00.8952602Z"
+}
