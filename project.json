@@ -3,6 +3,7 @@
   "description": "Investment Report with REFramework and Queue",
   "main": "Main.xaml",
   "dependencies": {
+    "Microsoft.Office.Interop.Excel": "[15.0.4795.1000]",
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.12.3]",
     "UiPath.System.Activities": "[21.10.3]",
